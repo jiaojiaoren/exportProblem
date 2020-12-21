@@ -1,0 +1,10 @@
+PHPEXECL导出execl表格中长数字自动转换为科学记数法的解决办法
+方法一：
+$objectActSheet->setCellValue('A1',' '.'330602198804224688');
+方法二：
+$objectActSheet->setCellValue('A1','330602198804224688'."\t");
+方法三：
+$objectActSheet->setCellValueExplicit('A1','330602198804224688',PHPExcel_Cell_DataType::TYPE_STRING);
+方法四：
+$objectActSheet->setCellValue('A1','330602198804224688');
+$objectActSheet->getStype('A1')->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
